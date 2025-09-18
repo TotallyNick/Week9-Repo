@@ -1,0 +1,24 @@
+<div class="container">
+  <h2>Products</h2>
+  <button (click)="add()">Add Product</button>
+
+  <div *ngIf="loading">Loading…</div>
+  <table *ngIf="!loading">
+    <thead><tr>
+      <th>id</th><th>name</th><th>description</th><th>price</th><th>units</th><th></th>
+    </tr></thead>
+    <tbody>
+      <tr *ngFor="let p of products">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.description}}</td>
+        <td>{{p.price | number:'1.2-2'}}</td>
+        <td>{{p.units}}</td>
+        <td>
+          <button (click)="edit(p)">Edit</button>
+          <button (click)="remove(p)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
